@@ -1,47 +1,64 @@
 @extends('admin.layouts.app')
 @section('content')
-
-<div class="card">
-    <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.permission.title') }}
-    </div>
-
-    <div class="card-body">
-        <div class="form-group">
-            <div class="form-group">
-                <a class="btn btn-default" href="{{ route('permissions.index') }}">
-                    {{ trans('global.back_to_list') }}
-                </a>
-            </div>
-            <table class="table table-bordered table-striped">
-                <tbody>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.permission.fields.id') }}
-                        </th>
-                        <td>
-                            {{ $permission->id }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.permission.fields.title') }}
-                        </th>
-                        <td>
-                            {{ $permission->title }}
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="form-group">
-                <a class="btn btn-default" href="{{ route('permissions.index') }}">
-                    {{ trans('global.back_to_list') }}
-                </a>
+    <div class="container-fluid">
+        <!-- begin row -->
+        <div class="row">
+            <div class="col-md-12 m-b-30">
+                <!-- begin page title -->
+                <div class="d-block d-sm-flex flex-nowrap align-items-center">
+                    <div class="page-title mb-2 mb-sm-0">
+                        <h1>Permission Details </h1>
+                    </div>
+                    <div class="ml-auto d-flex align-items-center">
+                        <nav>
+                            <ol class="breadcrumb p-0 m-b-0">
+                                <li class="breadcrumb-item">
+                                    <a href="index.html"><i class="ti ti-home"></i></a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    Permission Details
+                                </li>
+                                <li class="breadcrumb-item active text-primary" aria-current="page">Data Table</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                <!-- end page title -->
             </div>
         </div>
+        <!-- end row -->
+        <!-- begin row -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card card-statistics">
+                    <div class="card-body">
+                        <div class="datatable-wrapper table-responsive">
+                            <table id="datatable" class="display compact table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Role</th>
+                                    <th>Permission</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        {{ $permission->id }}
+                                    </td>
+                                    <td>
+                                        {{ $permission->title }}
+                                    </td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end row -->
     </div>
-</div>
-
-
 
 @endsection
+
